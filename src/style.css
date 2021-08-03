@@ -1,0 +1,15 @@
+/* HEADER */
+
+.pageHeader{
+    border: 1px solid rgb(235, 237, 240);
+}
+
+/* PoemBody */
+
+.container{
+    padding: 1em 0;
+    text-align: center;
+    margin: 2em auto;
+    width: 80%;
+    border: 1px solid rgb(235, 237, 240);
+}
