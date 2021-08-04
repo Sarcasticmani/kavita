@@ -2,9 +2,13 @@ import React from 'react'
 import { Typography } from 'antd'
 const {Text} = Typography
 
-const ShowPoem = ({data})=>{
+const ShowPoem = ({Poem})=>{
     return(
-        <Typography><Text mark>{data}</Text></Typography>
+        <Typography>
+            <Text italic strong>
+                {Poem}
+            </Text>
+        </Typography>
     )
 }
 
