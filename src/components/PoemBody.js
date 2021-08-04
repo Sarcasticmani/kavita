@@ -1,7 +1,6 @@
 import React from 'react'
 import ShowPoem from "./ShowPoem"
-import {Typography, Space, Select} from 'antd'
-import Author from './filter/Author'
+import {Typography, Space, Select, Button} from 'antd'
 const {Title, Text} = Typography
 const {Option} = Select
 
@@ -111,6 +110,13 @@ class PoemBody extends React.Component{
                 <div>
                     <div className="container">
                         {this.Author()}
+                        <Button 
+                            type="primary" 
+                            style={{margin:"0 1em"}}
+                            // onClick={this.componentDidMount()}
+                        >
+                            Random
+                        </Button>
                     </div>
                     <div className="container">
                         <Title>{this.state.poem[this.state.poemCount].title}</Title>
