@@ -14,7 +14,7 @@ class PoemBody extends React.Component{
                 isLoaded:false,
                 author:null,
                 selectAuthor:null,
-                poemCount:null
+                poemCount:0
             }
         }
     }
@@ -46,15 +46,19 @@ class PoemBody extends React.Component{
         const data = await response.json()
         this.setState(
             {
-                poem:data
+                poem:data,
+                isLoaded:true
             }
         )
+        this.selectPoemNumber()
+    }
 
+    selectPoemNumber = ()=>{
         const poemNumber=Math.floor(Math.random()*this.state.poem.length)
         this.setState({
-            poemCount:poemNumber,
-            isLoaded:true
+            poemCount:poemNumber
         })
+        console.log(this.state.poemCount)
     }
 
     Author = ()=>{
@@ -72,7 +76,7 @@ class PoemBody extends React.Component{
                     showSearch
                     style={{ width: 200}}
                     placeholder="Select Author"
-                    onSelect={selectAuthor}
+                    onChange={selectAuthor}
                 //     optionFilterProp="children"
                 // //     filterOption={(input, option) =>
                 // //     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -92,6 +96,7 @@ class PoemBody extends React.Component{
     }
 
     showPoem = (i)=>{
+            console.log("showPoem")
             return(
                 <ShowPoem
                     Poem={this.state.poem[this.state.poemCount].lines[i]} 
@@ -105,7 +110,7 @@ class PoemBody extends React.Component{
                 <h3>Loading.....</h3>
             )
         }else{
-            console.log(this.state.poemCount)
+            console.log("Hello")
             return(
                 <div>
                     <div className="container">
