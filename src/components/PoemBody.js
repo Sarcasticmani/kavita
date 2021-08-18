@@ -47,18 +47,15 @@ class PoemBody extends React.Component{
         this.setState(
             {
                 poem:data,
-                isLoaded:true
+                poemCount:0
             }
         )
-        this.selectPoemNumber()
-    }
 
-    selectPoemNumber = ()=>{
         const poemNumber=Math.floor(Math.random()*this.state.poem.length)
         this.setState({
-            poemCount:poemNumber
+            poemCount:poemNumber,
+            isLoaded:true
         })
-        console.log(this.state.poemCount)
     }
 
     Author = ()=>{
@@ -96,7 +93,6 @@ class PoemBody extends React.Component{
     }
 
     showPoem = (i)=>{
-            console.log("showPoem")
             return(
                 <ShowPoem
                     Poem={this.state.poem[this.state.poemCount].lines[i]} 
@@ -110,7 +106,7 @@ class PoemBody extends React.Component{
                 <h3>Loading.....</h3>
             )
         }else{
-            console.log("Hello")
+            console.log(this.state.poemCount)
             return(
                 <div>
                     <div className="container">
