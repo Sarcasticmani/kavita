@@ -27,7 +27,7 @@ class PoemBody extends React.Component{
         const dataAuthor = await responseAuthor.json()
         this.setState(
             {
-                author:dataAuthor,
+                author:dataAuthor
             }
         )
         
@@ -47,14 +47,39 @@ class PoemBody extends React.Component{
         this.setState(
             {
                 poem:data,
-                poemCount:0
+                // poemCount:0,
+                isLoaded:true
+            }
+        )
+
+        
+    }
+
+    poemno = async()=>{
+        let author = null
+
+        if(this.state.selectAuthor == null){
+            author = this.state.author['authors'][Math.floor(Math.random()*this.state.author['authors'].length)]
+            console.log(author)
+        }else{
+            author = this.state.selectAuthor
+        }
+        
+        const url = `https://poetrydb.org/author/${author}`;
+
+        const response = await fetch(url)
+        const data = await response.json()
+        this.setState(
+            {
+                poem:data,
+                poemCount:0,
+                isLoaded:true
             }
         )
 
         const poemNumber=Math.floor(Math.random()*this.state.poem.length)
         this.setState({
-            poemCount:poemNumber,
-            isLoaded:true
+            poemCount:poemNumber
         })
     }
 
@@ -100,6 +125,10 @@ class PoemBody extends React.Component{
             )
     }
 
+    hello = ()=>{
+        console.log("Hello")
+    }
+
     render(){
         if(!this.state.isLoaded){
             return(
@@ -114,7 +143,7 @@ class PoemBody extends React.Component{
                         <Button 
                             type="primary" 
                             style={{margin:"0 1em"}}
-                            // onClick={this.componentDidMount()}
+                            onClick={this.poemno}
                         >
                             Random
                         </Button>
