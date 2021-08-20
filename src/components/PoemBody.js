@@ -114,7 +114,7 @@ class PoemBody extends React.Component{
                         <Button 
                             type="primary" 
                             style={{margin:"0 1em"}}
-                            onClick={this.componentDidMount()}
+                            // onClick={this.componentDidMount()}
                         >
                             Random
                         </Button>
