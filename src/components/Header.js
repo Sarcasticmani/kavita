@@ -6,7 +6,7 @@ const Header = ()=>{
         <div>
             <PageHeader 
             className="pageHeader"
-            title="KAVITA"
+            title="KAVITA - POEM"
             subtitle="Read it with heart"
         />       
         
