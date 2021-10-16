@@ -1,7 +1,7 @@
 
 # Kavita
 
-A place to read soothing, relaxing poem from different great poets.
+A place to read soothing, relaxing poem from different great poets. The language of poem is english.
 
 
 
